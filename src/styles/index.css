@@ -13,16 +13,33 @@ html, body {
 /* Variables para la altura de línea y el offset del bloc de notas */
 :root {
   --notebook-line-height: 28px;
-  --notebook-line-offset: 25px; /* antes 20px, ahora 25px */
+  --notebook-line-offset: 25px;
+}
+
+/* Importar fuentes manuscritas */
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Shadows+Into+Light&display=swap');
+
+/* Aplicar tipografía manuscrita a todo */
+html, body, .todo-container, .form-control, .list-group-item {
+  font-family: 'Shadows Into Light', cursive;
+}
+
+/* Título con otro estilo de manuscrita */
+h1 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 2.2rem;
+  margin-bottom: 24px;
+  color: #333;
+  text-align: left;
 }
 
 .app {
   display: grid;
-  justify-items: center; /* centro horizontal */
-  align-items: start;    /* pego todo arriba */
+  justify-items: center;
+  align-items: start;
   width: 100%;
-  min-height: 100vh;     /* al menos altura de ventana */
-  padding-top: 1.5rem;   /* opcional: espacio superior */
+  min-height: 100vh;
+  padding-top: 1.5rem;
 }
 
 .ballpit-bg {
@@ -34,6 +51,7 @@ html, body {
   z-index: 0;
 }
 
+
 .todo-container {
   position: relative;
   z-index: 1;
@@ -41,7 +59,7 @@ html, body {
   max-width: 420px;
   padding: 30px 40px;
   background-color: #fdf9ec;
-  /* textura de papel (sin rayado aquí) */
+
   background-image:
     url('https://www.transparenttextures.com/patterns/paper-fibers.png');
   background-repeat: repeat;
@@ -54,7 +72,7 @@ html, body {
   transform: rotate(-0.5deg);
 }
 
-/* Franja roja margen */
+
 .todo-container::before {
   content: '';
   position: absolute;
@@ -66,26 +84,14 @@ html, body {
   border-radius: 2px;
 }
 
-/* Importar fuentes manuscritas */
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Shadows+Into+Light&display=swap');
 
-/* Título estilo “hand-writing” */
-h1 {
-  font-family: 'Permanent Marker', cursive;
-  font-size: 2.2rem;
-  margin-bottom: 24px;
-  color: #333;
-  text-align: left;
-}
-
-/* Campo de entrada como línea punteada */
 .form-control {
   width: 100%;
   border: none;
   border-bottom: 1px dashed #ccc;
   background: transparent;
   box-shadow: none;
-  font-family: inherit;
+
   font-size: 1rem;
   margin-bottom: 24px;
   padding: 4px 0;
@@ -94,7 +100,7 @@ h1 {
   outline: none;
 }
 
-/* LISTA DE TAREAS: línea azul DEBAJO del texto, todavía más abajo */
+
 .list-group {
   background-image:
     linear-gradient(
@@ -106,22 +112,22 @@ h1 {
   background-position: 0 var(--notebook-line-offset);
 }
 
-/* Cada tarea ocupa exactamente una “línea” */
+
 .list-group-item {
   position: relative;
   background: transparent;
   border: none;
   padding: 0;
   line-height: var(--notebook-line-height);
-  font-family: inherit;
+  
   font-size: 1rem;
 }
 
-/* Quitar los pseudo-elementos de líneas anteriores */
+
 .list-group-item::before { display: none; }
 .list-group-item + .list-group-item::before { display: none; }
 
-/* Botón de eliminar (cruz) */
+
 .list-group-item span {
   color: #e63946;
   font-weight: bold;
@@ -129,7 +135,7 @@ h1 {
   float: right;
 }
 
-/* Detalle opcional: mancha de café */
+
 .coffee-stain {
   position: absolute;
   top: 50px;
